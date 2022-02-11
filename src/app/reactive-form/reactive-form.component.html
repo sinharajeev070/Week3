@@ -1,0 +1,36 @@
+<div class="outerbox">
+    <div class="textbox">
+        <span class="heading">
+            Learn to code by watching others
+        </span>
+        <p class="para">
+            See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+            but understanding how developers think is invaluable. 
+        </p>
+    </div>
+    <div class="formbox">
+        <button class="offerbtn"><b>Try it free 7 days</b> then $20/mo. thereafter</button>
+        <div class="innerform">
+            <form action="" id = "loginform" [formGroup]="claimForm" (ngSubmit)="onClaim()">
+                <input type="text" placeholder="First Name" formControlName="fname">
+                <small *ngIf="fname.touched && fname.value===''" style="color:red;">Required Field</small>
+
+                <input type="text" placeholder="Last Name" formControlName="lname">
+                <small *ngIf="lname.touched && lname.value===''" style="color:red;">Required Field</small>
+
+                <input type="email" placeholder="Email" formControlName="email">
+                <small *ngIf="email.touched && email.value===''" style="color:red;">Required Field</small>
+                <small *ngIf="email.touched && email.value!=='' && email.invalid" style="color:red;">Enter a valid email.</small>
+
+                <input type="password" placeholder="Password" formControlName="password">
+                <small *ngIf="password.touched && password.value===''" style="color:red;">Required Field</small>
+                <small *ngIf="password.touched && password.value!=='' && password.invalid" style="color:red;">Give atleast six characters.</small>
+
+                <button type="submit" [disabled]="claimForm.invalid">{{'Claim your free trial'|uppercase}}</button>
+            </form>
+            <p>By clicking the button, you are agreeing to our <a href="">Terms and Services</a></p>
+        </div>
+    </div>
+</div>
+
+
